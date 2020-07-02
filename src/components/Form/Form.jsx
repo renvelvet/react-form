@@ -12,13 +12,7 @@ function Form() {
     gender: "",
     skills: [],
   });
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [birthdate, setBirthdate] = useState("");
-  // const [skills] = useState([]);
-  // const [gender, setGender] = useState("Male");
+
   const handleChange = (event) => {
     if (event.target.name === "skills") {
       if (event.target.checked) {

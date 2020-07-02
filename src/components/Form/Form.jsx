@@ -7,27 +7,24 @@ function Form() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [birthdate, setBirthdate] = useState("");
-  //   const [skills, setSkills] = useState("");
+  const [skills, setSkills] = useState("");
   const [gender, setGender] = useState("Male");
 
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(name);
-    // console.log(email);
-    // console.log(address);
-    // console.log(birthdate);
-    // console.log(gender);
 
     alert(`
     Name: ${name}
     Email: ${email}
     Address: ${address}
     Birthdate: ${birthdate}
-    Gender: ${gender}`);
+    Gender: ${gender}
+    Skill: ${skills}`);
     //   alert()
   }
   function handleOptionChange(changeEvent) {
     setGender({ gender: changeEvent.target.value });
+    setSkills({ skills: changeEvent.target.value });
   }
   return (
     <div className="formRegister">
@@ -125,6 +122,7 @@ function Form() {
               name="skills"
               value="Coding"
               id=""
+              onChange={handleOptionChange}
             />
             <label>Design</label>
             <input

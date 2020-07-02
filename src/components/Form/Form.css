@@ -1,0 +1,40 @@
+.formRegister label {
+  margin: 5px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+.form-group {
+  display: flex;
+  flex-flow: column wrap;
+}
+.form-control {
+  padding: 6px;
+}
+textarea {
+  height: auto;
+}
+.form-check label {
+  display: inline;
+  font-weight: normal;
+}
+.radio {
+  margin: 20px 0 15px 0;
+}
+.checkbox {
+  margin: 0 0 15px 0;
+}
+.checkbox input {
+  margin-right: 15px;
+}
+#register {
+  position: relative;
+  font-size: 15px;
+  margin: 10px 0;
+}
+input[type="submit" i] {
+  font-size: 20px !important;
+  padding: 6px 20px;
+  background: blueviolet;
+  border-radius: 2px;
+  color: aliceblue;
+}

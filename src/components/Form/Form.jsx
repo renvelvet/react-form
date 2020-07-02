@@ -5,9 +5,10 @@ import "./Form.css";
 function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [birthdate, setBirthdate] = useState("");
-  const [skills, setSkills] = useState("");
+  const [skills, setSkills] = useState([]);
   const [gender, setGender] = useState("Male");
 
   function handleSubmit(event) {
@@ -16,16 +17,16 @@ function Form() {
     alert(`
     Name: ${name}
     Email: ${email}
+    Password: ${password}
     Address: ${address}
     Birthdate: ${birthdate}
     Gender: ${gender}
     Skill: ${skills}`);
     //   alert()
   }
-  function handleOptionChange(changeEvent) {
-    setGender({ gender: changeEvent.target.value });
-    setSkills({ skills: changeEvent.target.value });
-  }
+  //   function handleOptionChange(event) {
+  //     setGender({ gender: event.target.value });
+  //   }
   return (
     <div className="formRegister">
       <form onSubmit={handleSubmit}>
@@ -60,6 +61,8 @@ function Form() {
             className="form-control"
             name="password"
             id=""
+            onChange={(event) => setPassword(event.target.value)}
+            value={password}
           />
         </div>
         <div className="form-group">
@@ -88,26 +91,24 @@ function Form() {
           />
         </div>
         <div className="radio">
-          <label>Gender</label>
+          <label htmlFor="male">Gender</label>
           <div className="form-check">
             <input
               type="radio"
               className="form-control"
               name="gender"
               value="Male"
-              //   checked={gender === "Male"}
-              onChange={handleOptionChange}
+              onChange={(event) => setGender(event.target.value)}
               id=""
             />
-            <label>Male</label>
+            <label htmlFor="female">Male</label>
             <input
               type="radio"
               className="form-control"
               name="gender"
               value="Female"
               id=""
-              //   checked={gender === "Female"}
-              onChange={handleOptionChange}
+              onChange={(event) => setGender(event.target.value)}
             />
             <label>Female</label>
           </div>
@@ -115,32 +116,32 @@ function Form() {
         <div className="checkbox">
           <label>Skills</label>
           <div className="form-check">
-            <label>Coding</label>
+            <label htmlFor="coding">Coding</label>
             <input
               type="checkbox"
               className="form-control"
               name="skills"
               value="Coding"
               id=""
-              onChange={handleOptionChange}
+              //   onChange={handleOptionChange}
             />
-            <label>Design</label>
+            <label htmlFor="design">Design</label>
             <input
               type="checkbox"
               className="form-control"
               name="skills"
               value="Design"
               id=""
-              onChange={handleOptionChange}
+              //   onChange={handleOptionChange}
             />
-            <label>Gaming</label>
+            <label htmlFor="gaming">Gaming</label>
             <input
               type="checkbox"
               className="form-control"
               name="skills"
               value="Gaming"
               id=""
-              onChange={handleOptionChange}
+              //   onChange={handleOptionChange}
             />
           </div>
         </div>

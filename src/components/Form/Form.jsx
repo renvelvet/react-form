@@ -3,30 +3,50 @@ import React, { useState } from "react";
 import "./Form.css";
 
 function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
-  const [birthdate, setBirthdate] = useState("");
-  const [skills] = useState([]);
-  const [gender, setGender] = useState("Male");
-
+  const [data, setdata] = useState({
+    name: "",
+    email: "",
+    password: "",
+    address: "",
+    birthdate: "",
+    gender: "",
+    skills: [],
+  });
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [birthdate, setBirthdate] = useState("");
+  // const [skills] = useState([]);
+  // const [gender, setGender] = useState("Male");
+  const handleChange = (event) => {
+    if (event.target.name === "skills") {
+      if (event.target.checked) {
+        setdata({ ...data, skills: [...data.skills, event.target.value] });
+      } else {
+        // skill unchecked
+        setdata({
+          ...data,
+          skills: data.skills.filter((a) => a !== event.target.value),
+        });
+      }
+    } else {
+      setdata({ ...data, [event.target.name]: event.target.value });
+    }
+  };
   function handleSubmit(event) {
     event.preventDefault();
 
     alert(`
-    Name: ${name}
-    Email: ${email}
-    Password: ${password}
-    Address: ${address}
-    Birthdate: ${birthdate}
-    Gender: ${gender}
-    Skill: ${skills}`);
-    //   alert()
+    Name: ${data.name}
+    Email: ${data.email}
+    Password: ${data.password}
+    Address: ${data.address}
+    Birthdate: ${data.birthdate}
+    Gender: ${data.gender}
+    Skill: ${data.skills}`);
   }
-  //   function handleOptionChange(event) {
-  //     setGender({ gender: event.target.value });
-  //   }
+
   return (
     <div className="formRegister">
       <form onSubmit={handleSubmit}>
@@ -38,8 +58,8 @@ function Form() {
             name="name"
             id=""
             placeholder="Nama Lengkap"
-            onChange={(event) => setName(event.target.value)}
-            value={name}
+            onChange={handleChange}
+            value={data.name}
           />
         </div>
         <div className="form-group">
@@ -50,8 +70,8 @@ function Form() {
             name="email"
             id=""
             placeholder="Email Address"
-            onChange={(event) => setEmail(event.target.value)}
-            value={email}
+            onChange={handleChange}
+            value={data.email}
           />
         </div>
         <div className="form-group">
@@ -61,8 +81,8 @@ function Form() {
             className="form-control"
             name="password"
             id=""
-            onChange={(event) => setPassword(event.target.value)}
-            value={password}
+            onChange={handleChange}
+            value={data.password}
           />
         </div>
         <div className="form-group">
@@ -74,8 +94,8 @@ function Form() {
             cols="10"
             rows="4"
             placeholder="Address"
-            onChange={(event) => setAddress(event.target.value)}
-            value={address}
+            onChange={handleChange}
+            value={data.address}
           ></textarea>
         </div>
         <div className="form-group">
@@ -85,9 +105,8 @@ function Form() {
             className="form-control"
             name="birthdate"
             id=""
-            placeholder="Ex:"
-            onChange={(event) => setBirthdate(event.target.value)}
-            value={birthdate}
+            onChange={handleChange}
+            value={data.birthdate}
           />
         </div>
         <div className="radio">
@@ -98,7 +117,7 @@ function Form() {
               className="form-control"
               name="gender"
               value="Male"
-              onChange={(event) => setGender(event.target.value)}
+              onChange={handleChange}
               id=""
             />
             <label htmlFor="female">Male</label>
@@ -108,7 +127,7 @@ function Form() {
               name="gender"
               value="Female"
               id=""
-              onChange={(event) => setGender(event.target.value)}
+              onChange={handleChange}
             />
             <label>Female</label>
           </div>
@@ -123,7 +142,7 @@ function Form() {
               name="skills"
               value="Coding"
               id=""
-              //   onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="design">Design</label>
             <input
@@ -132,7 +151,7 @@ function Form() {
               name="skills"
               value="Design"
               id=""
-              //   onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="gaming">Gaming</label>
             <input
@@ -141,7 +160,7 @@ function Form() {
               name="skills"
               value="Gaming"
               id=""
-              //   onChange={handleOptionChange}
+              onChange={handleChange}
             />
           </div>
         </div>

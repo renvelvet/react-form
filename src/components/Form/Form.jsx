@@ -78,7 +78,7 @@ function Form() {
         <div className="form-group">
           <label>Birthdate</label>
           <input
-            type="datetime"
+            type="date"
             className="form-control"
             name="birthdate"
             id=""
@@ -131,6 +131,7 @@ function Form() {
               name="skills"
               value="Design"
               id=""
+              onChange={handleOptionChange}
             />
             <label>Gaming</label>
             <input
@@ -139,6 +140,7 @@ function Form() {
               name="skills"
               value="Gaming"
               id=""
+              onChange={handleOptionChange}
             />
           </div>
         </div>

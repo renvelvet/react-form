@@ -8,7 +8,7 @@ function Form() {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [birthdate, setBirthdate] = useState("");
-  const [skills, setSkills] = useState([]);
+  const [skills] = useState([]);
   const [gender, setGender] = useState("Male");
 
   function handleSubmit(event) {

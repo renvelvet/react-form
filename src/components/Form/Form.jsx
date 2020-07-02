@@ -115,7 +115,7 @@ function Form() {
             <label>Female</label>
           </div>
         </div>
-        {/* <div className="checkbox">
+        <div className="checkbox">
           <label>Skills</label>
           <div className="form-check">
             <label>Coding</label>
@@ -123,7 +123,7 @@ function Form() {
               type="checkbox"
               className="form-control"
               name="skills"
-              value={skills}
+              value="Coding"
               id=""
             />
             <label>Design</label>
@@ -131,7 +131,7 @@ function Form() {
               type="checkbox"
               className="form-control"
               name="skills"
-              value={skills}
+              value="Design"
               id=""
             />
             <label>Gaming</label>
@@ -139,11 +139,11 @@ function Form() {
               type="checkbox"
               className="form-control"
               name="skills"
-              value={skills}
+              value="Gaming"
               id=""
             />
           </div>
-        </div> */}
+        </div>
         <div>
           <input type="submit" value="Register" id="register" />
         </div>
